@@ -33,5 +33,7 @@ module.exports = {
     static: path.join(__dirname, 'public'),
     port: 8080,
     allowedHosts: 'all',
+    compress: true,
+    public: 'https://artisan-backend.onrender.com'
   },
 };
