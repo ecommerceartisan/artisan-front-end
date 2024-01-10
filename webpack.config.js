@@ -34,6 +34,6 @@ module.exports = {
     port: 8080,
     allowedHosts: 'all',
     compress: true,
-    public: 'https://artisan-backend.onrender.com',
+    public: 'https://front-end-test-ofq1.onrender.com',
   },
 };
