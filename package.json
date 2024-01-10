@@ -19,7 +19,8 @@
     
     "disableHostCheck": true,
     "allowedHosts": "all",
-    "compress": true
+    "compress": true,
+    "public": "https://front-end-test-ofq1.onrender.com"
     
   },
   "browserslist": {
