@@ -34,7 +34,7 @@ module.exports = {
     port: 8080,
     allowedHosts: 'all',
     compress: true,
-    public: 'https://front-end-test-ofq1.onrender.com',
+    host: 'front-end-test-ofq1.onrender.com',
     disableHostCheck: true
   },
 };

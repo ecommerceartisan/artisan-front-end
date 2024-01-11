@@ -4,10 +4,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "set PORT=80&&react-scripts start",
+    "start": "set PORT=80&&react-scripts start --disable-host-check",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+    
   },
   "eslintConfig": {
     "extends": [
@@ -20,7 +21,7 @@
     "disableHostCheck": true,
     "allowedHosts": "all",
     "compress": true,
-    "public": "https://front-end-test-ofq1.onrender.com"
+    "host": "front-end-test-ofq1.onrender.com"
     
   },
   "browserslist": {
