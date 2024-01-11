@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+const ARTISAN_APP_API = 'https://artisan-backend.onrender.com'
+
 export default function useCategory() {
   // Initialize the 'categories' state variable as an empty array.
   const [categories, setCategories] = useState([]);
@@ -9,7 +11,7 @@ export default function useCategory() {
   const getCategories = async () => {
     try {
       // Make an Axios GET request to fetch categories from the API.
-      const { data } = await axios.get(`${process.env.ARTISAN_APP_API}/api/v1/category/get-category`);
+      const { data } = await axios.get(`${ARTISAN_APP_API}/api/v1/category/get-category`);
 
       // Update the 'categories' state with the fetched category data.
       setCategories(data?.category);
