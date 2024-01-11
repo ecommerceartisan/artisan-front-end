@@ -35,5 +35,6 @@ module.exports = {
     allowedHosts: 'all',
     compress: true,
     public: 'https://front-end-test-ofq1.onrender.com',
+    disableHostCheck: true
   },
 };
