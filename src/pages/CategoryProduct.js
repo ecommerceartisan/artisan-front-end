@@ -3,7 +3,7 @@ import Layout from "../components/Layout/Layout";
 import { useParams, useNavigate } from "react-router-dom";
 import "../styles/CategoryProductStyles.css";
 import axios from "axios";
-
+const ARTISAN_APP_API = 'https://artisan-backend.onrender.com'
 const CategoryProduct = () => {
   // Get the category slug from the URL parameters
   const params = useParams();
