@@ -9,7 +9,7 @@ export default function useCategory() {
   const getCategories = async () => {
     try {
       // Make an Axios GET request to fetch categories from the API.
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get(`${process.env.ARTISAN_APP_API}/api/v1/category/get-category`);
 
       // Update the 'categories' state with the fetched category data.
       setCategories(data?.category);
