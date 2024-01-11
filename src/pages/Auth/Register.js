@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
 import toast from 'react-hot-toast';
 import "../../styles/AuthStyle.css";
+const ARTISAN_APP_API = 'https://artisan-backend.onrender.com'
 
 const Register = () => {
     const [name, setName] = useState("");
@@ -34,7 +35,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("/api/v1/auth/register", {
+            const res = await axios.post(`${ARTISAN_APP_API}/api/v1/auth/register`, {
                 name,
                 email,
                 password,

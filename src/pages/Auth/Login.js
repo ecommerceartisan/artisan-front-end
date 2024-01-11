@@ -5,6 +5,8 @@ import Layout from '../../components/Layout/Layout'; // Layout component for pag
 import toast from 'react-hot-toast'; // Toast notifications for user feedback
 import { useAuth } from '../../context/auth'; // Custom context for managing user authentication
 import "../../styles/AuthStyle.css"; // Styling for the component
+const ARTISAN_APP_API = 'https://artisan-backend.onrender.com'
+
 
 const Login = () => {
     // State variables to store user input
@@ -21,7 +23,7 @@ const Login = () => {
         e.preventDefault();
         try {
             // Send a POST request to the '/api/v1/auth/login' endpoint
-            const res = await axios.post("/api/v1/auth/login", {
+            const res = await axios.post(`${ARTISAN_APP_API}/api/v1/auth/login`, {
                 email,
                 password,
             });

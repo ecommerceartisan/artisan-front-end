@@ -6,6 +6,7 @@ import axios from "axios";
 import { Select } from "antd";
 import { useNavigate } from "react-router-dom";
 const { Option } = Select;
+const ARTISAN_APP_API = 'https://artisan-backend.onrender.com'
 
 const CreateProduct = () => {
   // Use the `useNavigate` hook from React Router for navigation.
@@ -24,7 +25,7 @@ const CreateProduct = () => {
   // Function to fetch all categories.
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get(`${ARTISAN_APP_API}/api/v1/category/get-category`);
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -52,7 +53,7 @@ const CreateProduct = () => {
       productData.append("category", category);
       productData.append("shipping", shipping);
 
-      const { data } = axios.post("/api/v1/product/create-product", productData);
+      const { data } = axios.post(`${ARTISAN_APP_API}/api/v1/product/create-product`, productData);
 
       if (data?.success) {
         toast.error(data?.message);

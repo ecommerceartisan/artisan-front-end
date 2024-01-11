@@ -6,6 +6,7 @@ import axios from "axios";
 import { Select } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
 const { Option } = Select;
+const ARTISAN_APP_API = 'https://artisan-backend.onrender.com'
 
 const UpdateProduct = () => {
   // Initialize state variables
@@ -25,7 +26,7 @@ const UpdateProduct = () => {
   const getSingleProduct = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/product/get-product/${params.slug}`
+        `${ARTISAN_APP_API}/api/v1/product/get-product/${params.slug}`
       );
 
       // Set state variables with product details
@@ -50,7 +51,7 @@ const UpdateProduct = () => {
   // Function to get all categories
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get(`${ARTISAN_APP_API}/api/v1/category/get-category`);
 
       // Set state variable with the list of categories
       if (data?.success) {
@@ -80,7 +81,7 @@ const UpdateProduct = () => {
       productData.append("category", category);
       
       // Send a PUT request to update the product
-      const { data } = axios.put(`/api/v1/product/update-product/${id}`, productData);
+      const { data } = axios.put(`${ARTISAN_APP_API}/api/v1/product/update-product/${id}`, productData);
       
       if (data?.success) {
         toast.error(data?.message);
@@ -101,7 +102,7 @@ const UpdateProduct = () => {
       let answer = window.prompt("Are you sure you want to delete this product? Type 'Yes' to confirm or click 'Cancel'.");
       if (answer && answer.trim().toLowerCase() === 'yes') {
         // Send a DELETE request to remove the product
-        const { data } = await axios.delete(`/api/v1/product/delete-product/${id}`);
+        const { data } = await axios.delete(`${ARTISAN_APP_API}/api/v1/product/delete-product/${id}`);
         toast.success("Product Deleted Successfully");
         navigate("/dashboard/admin/products");
       }
@@ -163,7 +164,7 @@ const UpdateProduct = () => {
                 ) : (
                   <div className="text-center">
                     <img
-                      src={`/api/v1/product/product-photo/${id}`}
+                      src={`${ARTISAN_APP_API}/api/v1/product/product-photo/${id}`}
                       alt="product_photo"
                       height={"200px"}
                       className="img img-responsive"

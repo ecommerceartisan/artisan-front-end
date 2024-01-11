@@ -4,6 +4,7 @@ import Layout from "./../../components/Layout/Layout";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+const ARTISAN_APP_API = 'https://artisan-backend.onrender.com'
 
 const Products = () => {
   // State variable to store the list of products.
@@ -12,7 +13,7 @@ const Products = () => {
   // Function to fetch all products.
   const getAllProducts = async () => {
     try {
-      const { data } = await axios.get("/api/v1/product/get-product");
+      const { data } = await axios.get(`${ARTISAN_APP_API}/api/v1/product/get-product`);
       setProducts(data.products);
     } catch (error) {
       console.log(error);
@@ -43,7 +44,7 @@ const Products = () => {
               >
                 <div className="card m-2" style={{ width: "18rem" }}>
                   <img
-                    src={`/api/v1/product/product-photo/${p._id}`}
+                    src={`${ARTISAN_APP_API}/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
                   />

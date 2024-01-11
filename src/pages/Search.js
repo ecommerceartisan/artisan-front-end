@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "./../components/Layout/Layout";
 import { useSearch } from "../context/search";
+const ARTISAN_APP_API = 'https://artisan-backend.onrender.com'
 
 const Search = () => {
   // Get search results and search values from context
@@ -21,7 +22,7 @@ const Search = () => {
               <div className="card m-2" style={{ width: "18rem" }}>
                 {/* Display product image */}
                 <img
-                  src={`/api/v1/product/product-photo/${p._id}`}
+                  src={`${ARTISAN_APP_API}/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
                 />

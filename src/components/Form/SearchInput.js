@@ -3,6 +3,9 @@ import { useSearch } from "../../context/search";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const ARTISAN_APP_API = 'https://artisan-backend.onrender.com'
+
+
 const SearchInput = () => {
   // This component utilizes the useSearch hook to access and modify search-related data.
   const [values, setValues] = useSearch();
@@ -16,7 +19,7 @@ const SearchInput = () => {
 
     try {
       // It sends a request to a backend API with the search keyword from the 'values' state.
-      const { data } = await axios.get(`/api/v1/product/search/${values.keyword}`);
+      const { data } = await axios.get(`${ARTISAN_APP_API}/api/v1/product/search/${values.keyword}`);
 
       // The results received from the API are stored in the 'results' property of 'values'.
       setValues({ ...values, results: data });

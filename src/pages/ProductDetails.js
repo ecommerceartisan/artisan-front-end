@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
 import "../styles/ProductDetailsStyles.css";
+const ARTISAN_APP_API = 'https://artisan-backend.onrender.com'
 
 const ProductDetails = () => {
   const params = useParams();
@@ -30,7 +31,7 @@ const ProductDetails = () => {
 
   const getProduct = async () => {
     try {
-      const { data } = await axios.get(`${process.env.ARTISAN_APP_API}/api/v1/product/get-product/${params.slug}`);
+      const { data } = await axios.get(`${ARTISAN_APP_API}/api/v1/product/get-product/${params.slug}`);
       setProduct(data?.product);
       getSimilarProduct(data?.product._id, data?.product.category._id);
     } catch (error) {
@@ -40,7 +41,7 @@ const ProductDetails = () => {
 
   const getSimilarProduct = async (pid, cid) => {
     try {
-      const { data } = await axios.get(`/api/v1/product/related-product/${pid}/${cid}`);
+      const { data } = await axios.get(`${ARTISAN_APP_API}/api/v1/product/related-product/${pid}/${cid}`);
       setRelatedProducts(data?.products);
     } catch (error) {
       console.log(error);
@@ -55,7 +56,7 @@ const ProductDetails = () => {
 
   const getComments = async () => {
     try {
-      const { data } = await axios.get(`/api/v1/product/get-comments/${product._id}`);
+      const { data } = await axios.get(`${ARTISAN_APP_API}/api/v1/product/get-comments/${product._id}`);
       setComments(data?.comments);
     } catch (error) {
       console.log(error);
@@ -94,7 +95,7 @@ const ProductDetails = () => {
         formData.append("photo", commentPhoto);
       }
 
-      await axios.post(`/api/v1/product/add-comment/${product._id}`, formData, {
+      await axios.post(`${ARTISAN_APP_API}/api/v1/product/add-comment/${product._id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -117,7 +118,7 @@ const ProductDetails = () => {
       <div className="row container product-details">
         <div className="col-md-6">
           <img
-            src={`/api/v1/product/product-photo/${product._id}`}
+            src={`${ARTISAN_APP_API}/api/v1/product/product-photo/${product._id}`}
             className="card-img-top"
             alt={product.name}
             height="300"
@@ -178,7 +179,7 @@ const ProductDetails = () => {
             <p>{comment.text}</p>
             {comment.photo && (
               <img
-                src={`/api/v1/product/comment-photo/${comment._id}`}
+                src={`${ARTISAN_APP_API}/api/v1/product/comment-photo/${comment._id}`}
                 alt="Comment"
                 className="comment-photo"
               />
@@ -196,7 +197,7 @@ const ProductDetails = () => {
           {relatedProducts?.map((p) => (
             <div className="card m-2" key={p._id}>
               <img
-                src={`/api/v1/product/product-photo/${p._id}`}
+                src={`${ARTISAN_APP_API}/api/v1/product/product-photo/${p._id}`}
                 className="card-img-top"
                 alt={p.name}
               />

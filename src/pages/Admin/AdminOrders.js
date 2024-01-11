@@ -6,6 +6,9 @@ import Layout from "../../components/Layout/Layout";
 import { useAuth } from "../../context/auth";
 import moment from "moment";
 import { Select } from "antd";
+
+const ARTISAN_APP_API = 'https://artisan-backend.onrender.com'
+
 const { Option } = Select;
 
 const AdminOrders = () => {
@@ -30,7 +33,7 @@ const AdminOrders = () => {
   // Function to retrieve orders from the server.
   const getOrders = async () => {
     try {
-      const { data } = await axios.get("/api/v1/auth/all-orders");
+      const { data } = await axios.get(`${ARTISAN_APP_API}/api/v1/auth/all-orders`);
       setOrders(data);
     } catch (error) {
       console.log(error);
@@ -45,7 +48,7 @@ const AdminOrders = () => {
   // Function to handle changes in order status.
   const handleChange = async (orderId, value) => {
     try {
-      const { data } = await axios.put(`/api/v1/auth/order-status/${orderId}`, {
+      const { data } = await axios.put(`${ARTISAN_APP_API}/api/v1/auth/order-status/${orderId}`, {
         status: value,
       });
       getOrders();
@@ -104,7 +107,7 @@ const AdminOrders = () => {
                     <div className="row mb-2 p-3 card flex-row" key={p._id}>
                       <div className="col-md-4">
                         <img
-                          src={`/api/v1/product/product-photo/${p._id}`}
+                          src={`${ARTISAN_APP_API}/api/v1/product/product-photo/${p._id}`}
                           className="card-img-top"
                           alt={p.name}
                           width="100px"

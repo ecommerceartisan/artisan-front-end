@@ -27,7 +27,7 @@ const CategoryProduct = () => {
     try {
       // Make an API request to get products for the specified category
       const { data } = await axios.get(
-        `/api/v1/product/product-category/${params.slug}`
+        `${ARTISAN_APP_API}/api/v1/product/product-category/${params.slug}`
       );
 
       // Set the products and category in the component's state
@@ -50,7 +50,7 @@ const CategoryProduct = () => {
               {products?.map((p) => (
                 <div className="card m-2" key={p._id}>
                   <img
-                    src={`/api/v1/product/product-photo/${p._id}`}
+                    src={`${ARTISAN_APP_API}/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
                   />

@@ -3,6 +3,7 @@ import { useAuth } from "../../context/auth";
 import { Outlet } from "react-router-dom";
 import axios from "axios";
 import Spinner from "../Spinner";
+const ARTISAN_APP_API = 'https://artisan-backend.onrender.com'
 
 export default function PrivateRoute() {
   // State variable 'ok' is used to determine whether the user is authorized.
@@ -15,7 +16,7 @@ export default function PrivateRoute() {
   useEffect(() => {
     // Asynchronously check for user authentication by making an HTTP request.
     const authCheck = async () => {
-      const res = await axios.get("/api/v1/auth/user-auth");
+      const res = await axios.get(`${ARTISAN_APP_API}/api/v1/auth/user-auth`);
       
       // If the response indicates the user is authenticated, set 'ok' to true.
       if (res.data.ok) {
