@@ -13,8 +13,10 @@ const About = () => {
           />
         </div>
         <div className="col-md-4">
+        <h1>Artisan Ecommerce</h1>
           <p className="text-justify mt-2">
-            Artisan Ecommerce About
+            Welcome to Pampanga Artisan, where the vibrant spirit of Kapampangan artistry meets the global stage. We take pride in being a dedicated platform crafted exclusively for Kapampangan artists, providing them with a unique space to showcase their exceptional products to a worldwide audience.
+At Pampanga Artisan, we understand the importance of seamless communication between artists and buyers. That's why we've designed our platform to be not only a showcase but also a hub for easy, secure, and fas
           </p>
         </div>
       </div>

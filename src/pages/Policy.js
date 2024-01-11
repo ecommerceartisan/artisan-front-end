@@ -13,7 +13,7 @@ const Policy = () => {
           />
         </div>
         <div className="col-md-4">
-          <p>add privacy policy</p>
+          <p>Welcome to the Pampanga Artisans E-commerce website. This Privacy Policy outlines how we collect, use, disclose, and protect your personal information. By accessing or using our website, you agree to the terms of this policy.</p>
           <p>add privacy policy</p>
           <p>add privacy policy</p>
           <p>add privacy policy</p>

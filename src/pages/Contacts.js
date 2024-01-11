@@ -23,7 +23,7 @@ const Contacts = () => {
             <BiMailSend /> : www.help@artisanecommerce.com.ph
           </p>
           <p className="mt-3">
-            <BiPhoneCall /> : 012-3456789
+            <BiPhoneCall /> : +63-909-056-9208
           </p>
           <p className="mt-3">
             <BiSupport /> : 1800-0000-0000 (toll-free)
