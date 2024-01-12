@@ -4,13 +4,14 @@ import Layout from "./../../components/Layout/Layout";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
-const ARTISAN_APP_API = 'https://artisan-backend.onrender.com'
+import "../../styles/AdminProduct.css"; // Adjust the import statement based on the actual extension
+
+
+const ARTISAN_APP_API = 'https://artisan-backend.onrender.com';
 
 const Products = () => {
-  // State variable to store the list of products.
   const [products, setProducts] = useState([]);
 
-  // Function to fetch all products.
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(`${ARTISAN_APP_API}/api/v1/product/get-product`);
@@ -21,7 +22,6 @@ const Products = () => {
     }
   };
 
-  // Use the `useEffect` hook to fetch products when the component mounts.
   useEffect(() => {
     getAllProducts();
   }, []);
@@ -36,7 +36,6 @@ const Products = () => {
           <h1 className="text-center">All Products List</h1>
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
-              // Create links to individual product pages.
               <Link
                 key={p._id}
                 to={`/dashboard/admin/product/${p.slug}`}
@@ -45,7 +44,7 @@ const Products = () => {
                 <div className="card m-2" style={{ width: "18rem" }}>
                   <img
                     src={`${ARTISAN_APP_API}/api/v1/product/product-photo/${p._id}`}
-                    className="card-img-top"
+                    className="card-img-top product-image" // Add product-image class here
                     alt={p.name}
                   />
                   <div className="card-body">

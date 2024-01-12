@@ -3,7 +3,7 @@ import Layout from "./../components/Layout/Layout";
 import { BiArrowToRight, BiQuestionMark } from "react-icons/bi";
 import "../styles/faq.css"; 
 
-const Contacts = () => {
+const faq = () => {
   return (
     <Layout title={"FAQ - Artisan Ecommerce"}>
       <div className="row contactus" style={{ marginBottom: "20px" }}>
@@ -51,4 +51,4 @@ const Contacts = () => {
   );
 };
 
-export default Contacts;
+export default faq;
