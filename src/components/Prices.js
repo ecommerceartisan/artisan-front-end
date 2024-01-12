@@ -47,6 +47,6 @@ export const Prices = [
   {
     _id: 9,
     name: "₱5000 or more",
-    array: [5000, 9999],
+    array: [5000, 99999],
   },
 ];
