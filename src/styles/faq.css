@@ -1,0 +1,13 @@
+/* faq.css */
+.faq-container {
+  text-align: left; /* Align text within the container to the left */
+}
+
+.faq-list {
+  list-style: none;
+  padding: 0;
+}
+
+.faq-list li {
+  margin-bottom: 20px;
+}
